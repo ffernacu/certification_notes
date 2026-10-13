@@ -1,0 +1,326 @@
+Curso de github foundation Microsoft:
+https://learn.microsoft.com/es-es/training/courses/gh-900t00
+
+================================================================================
+SECCION 1: ARQUITECTURA Y CONCEPTOS BASE
+================================================================================
+Sistema de Control de versiones: VCS,son copias en local y en nube
+Git: es un VSC distribuido para colaboracion en paralelo
+Area de trabajo: Workspace, conjunto de directorios que contiene el proyecto
+Repositorio: son los archivos del directorio .git
+Hash: valida si los archivos fueron modificados a partir nde la comparacion de sus bits
+Objeto: git tiene 4 objetos -> blob, arbol(tree), confirmacion(commit) y etiqueta(tag)
+Confirmacion: Commit, representa una version especifica del arbol, es decir ya esta visible para otros usuarios
+Rama: Branch, es una version alterna de la rama predeterminada main para controlar cambios propios
+Head: es la ultima confirmacion generada
+Remote: apodos para comunicarse el repositorio de github
+Origin: es un remote usado para subir cambios de git a github o bajar cambios de github a git
+
+Ejercicio1:
+https://github.com/ffernacu/skills-introduction-to-git/issues/1
+
+================================================================================
+SECCION 2: EL FLUJO DE TRABAJO (GIT FLOW LOCAL)
+================================================================================
+Directorio de trabajo: son los archivos del proyecto
+Area de preparacion: son los archivos que estan siendo modificados   
+Repositorio: son los archivos modificados con confirmacion
+
+Entendiendo el historial de Git
+Git mantiene un historial completo de tu proyecto a través de commits. Cada commit contiene:
+
+ID hash único : Un identificador único para referenciarlo fácilmente en el historial.
+Commit padre : Referencia al commit anterior, creando una cadena.
+Información del autor : Quién realizó los cambios.
+Marca de tiempo : Cuándo se aplicaron los cambios.
+Mensaje de confirmación : Descripción de los cambios incluidos en esa confirmación.
+main: es la rama master
+feature: rama aislada sin afectar la rama main
+merge: es la fusion o combinacion de cambios de diferentes ramas
+
+================================================================================
+GUIA RAPIDA: COMANDOS DE GIT
+================================================================================
+
+Comando:        git log --oneline
+Proposito:      Resumir el historial de cambios.
+Funcionamiento: Muestra toda la lista de confirmaciones (commits) condensando 
+                cada una en una sola linea de texto para facilitar la lectura.
+
+--------------------------------------------------------------------------------
+
+Comando:        git checkout <commit_id>
+Proposito:      Viajar en el tiempo dentro del proyecto.
+Funcionamiento: Mueve el puntero HEAD hacia una confirmacion especifica del pasado 
+                para revisar como estaba el codigo en ese momento.
+--------------------------------------------------------------------------------				
+
+Comando:        git log --all --graph --oneline
+Proposito:      Mostrar los commits de todos los branches.
+Funcionamiento: Dibuja un mapa visual completo con lineas en la terminal, 
+                resumiendo cada confirmacion en una sola linea corta.
+
+--------------------------------------------------------------------------------
+
+Comando:        git diff
+Proposito:      Ver diferencias entre el directorio de trabajo y el area de 
+                preparacion (Staging Area).
+Funcionamiento: Compara los cambios actuales que has hecho en tus archivos 
+                frente a lo que ya habias guardado con 'git add'.
+
+--------------------------------------------------------------------------------
+
+Comando:        git diff --staged
+Proposito:      Ver diferencias entre el area de preparacion y la confirmacion 
+                (commit) anterior.
+Funcionamiento: Muestra exactamente cuales son los cambios que entraran en el 
+                proximo commit antes de ejecutarlo.
+
+--------------------------------------------------------------------------------
+
+Comando:        git diff HEAD~1
+Proposito:      Ver diferencias entre la confirmacion actual y la confirmacion 
+                anterior.
+Funcionamiento: Compara el estado del ultimo commit (HEAD) contra el commit 
+                inmediatamente anterior (~1) para ver que cambio entre ellos.
+						  
+================================================================================
+ARBOL GENEALOGICO: DESDE INGENIERIA DE SISTEMAS HASTA GIT
+================================================================================
+
+[⚙️] INGENIERÍA DE SISTEMAS (La Raiz)
+  └── [💻] Ingeniería de Software
+        └── [📦] Administracion de la Configuracion de Software (SCM)
+              └── [📂] Control de Versiones
+                    └── [🔀] Control de Versiones Distribuido
+                          └── [🐙] Git (La herramienta final)
+
+--------------------------------------------------------------------------------
+EXPLICACION DE CADA GENERACION (De mayor a menor)
+--------------------------------------------------------------------------------
+
+1. INGENIERIA DE SISTEMAS
+   - Modela y gestiona cualquier sistema complejo.
+   - Abarca hardware, software, personas y procesos.
+
+2. INGENIERIA DE SOFTWARE
+   - Rama enfocada exclusivamente en sistemas informaticos.
+   - Aplica principios de ingenieria al ciclo de vida del codigo.
+
+3. ADMINISTRACION DE LA CONFIGURACION DE SOFTWARE (SCM)
+   - Disciplina que controla la evolucion del software.
+   - Rastrea documentacion, dependencias, entornos y codigo.
+
+4. CONTROL DE VERSIONES
+   - Sub-materia tecnica dentro de SCM.
+   - Registra el historial de cambios en los archivos.
+
+5. CONTROL DE VERSIONES DISTRIBUIDO
+   - Arquitectura moderna de control de versiones.
+   - Permite que cada desarrollador tenga una copia completa del historial.
+
+6. GIT
+   - Herramienta especifica y software libre.
+   - Implementa de forma practica la teoria anterior.
+
+
+GitHub:
+Repositorios:
+Gits:
+
+Tipos de ramas en Git Flow
+master: siempre refleja el código listo para producción.
+develop: contiene el trabajo de desarrollo más reciente para la próxima versión.
+feature/*: se usa para crear nuevas funcionalidades; creado a partir de develop y se fusiona de nuevo cuando se complete.
+release/*: prepara una nueva versión de producción desde develop; permite pruebas finales y correcciones de errores menores.
+hotfix/*: se utiliza para aplicar revisiones urgentes para los problemas de producción; se bifurca a partir de master
+
+Isuess: temas relativos a codigo
+discuciones: foro colaborativo
+pull request: solicitud de integracion de cambios
+
+--------------------------------------------------------------------------------
+PRODUCTOS DE GITHUB
+--------------------------------------------------------------------------------
+Cuentas
+• Cuenta Enterprise (Nivel Corporativo - Raíz): El paraguas de más alto nivel que permite gestionar de forma centralizada la seguridad,
+    las políticas y la facturación de múltiples organizaciones.
+   • Cuenta de Organización (Nivel de Equipo - Ramas): El espacio de trabajo compartido para equipos que permite estructurar
+       la colaboración en múltiples proyectos mediante roles y permisos por niveles.
+      • Cuenta Personal (Nivel de Usuario - Identidad Base): La identidad única e individual de cada desarrollador en GitHub
+          para gestionar su propio perfil e ingresar como miembro a trabajar dentro del árbol corporativo.
+
+Planes:
+GitHub Free (Personales y Organizaciones): Ofrece controles de seguridad básicos y alertas de vulnerabilidades,
+pero carece de restricciones avanzadas de revisión de código para repositorios privados.
+Cualquier desarrollador podría hacer un push directo o borrar accidentalmente la rama 
+
+GitHub Pro (Solo Cuentas Personales): Desbloquea para desarrolladores individuales la obligación de requerir revisores en Pull Requests,
+ramas protegidas y asignación automática de dueños del código (Code Owners).
+Permite blindar Ramas Protegidas, impidiendo fusiones (merges) directas en main o develop
+sin pasar por un Pull Request aprobado por los revisores o los Code Owners asignados.
+
+GitHub Team (Solo Organizaciones): Añade administración de accesos basada en grupos, borradores de Pull Requests
+y asignación de revisiones de código dirigidas a equipos completos.
+Para sean validadas de forma colectiva por un grupo especializado (como el equipo de QA o Tech Leads)
+
+GitHub Enterprise (Cuentas de Empresa): Permite bloquear reglas de cumplimiento globales, centralizar identidades mediante SSO
+y aplicar protección avanzada de despliegues en todo el árbol corporativo.
+Centraliza el gobierno de TI mediante el aprovisionamiento e identidad federada (SAML SSO/SCIM)
+e implementa conjuntos de reglas (Rulesets) globales y vinculantes para garantizar el cumplimiento
+normativo e inmutabilidad en la protección de ramas y el código validado por GitHub Actions
+en toda la corporación.
+
+Facturación de GitHub
+suscripción y licencia: cuenta de GitHub Pro, GitHub Copilot(tokens limitados)                                        
+basada en consumo: Acciones de GitHub(incremento de infraestructura), GitHub Copilot(incremento de tokens), Github Codespaces        
+
+Secretos cifrados en GITHUB 🔐: es una variable de entorno confidencial que almacena credenciales sensibles
+para ser usando en pipelines de github actions (como cadenas de conexión a bases de datos o tokens de Azure/AWS)
+de forma segura mediante criptografía asimétrica.
+
+--------------------------------------------------------------------------------
+ESCANEO DE CODIGO
+--------------------------------------------------------------------------------
+CodeQL: motor de escaneo de codigo de Github sobre owas top 10
+- habilitacion default: desde Repository -> Security and quality -> enabled code scanning default
+- habilitacion avanzada: desde Repository -> Configuration -> Security and quality -> code scanning advance
+- copilot autofix se habilita en ambos casos
+- Findings: registro de vulnerabilidades, y los resultados se muestran en code scanning -> Open , Closed
+
+Copilot: 
+modo chat: consultor de codigo
+modo plan agente: diseño, ejecucion tareas y preview de codigo
+modo agente: implementacion de codigo
+
+Codespaces: Entorno de desarrollo virtual sin servidor
+Markdown: lenguaje simplificado de texto
+
+-------------
+MODELO DE GESTION DE REPOSITORIOS
+-------------
+InnerSource: Es el modelo de colaboracion en repositorios internos, lo opuesto a opensource(codigo abierto)
+
+Público: Visible para cualquier persona en internet.
+Interno (Internal): Visible únicamente para los miembros de la empresa (ideal para proyectos de InnerSource).
+Privado: Visible solo para el propietario y los usuarios/equipos específicamente invitados.
+
+Niveles de permiso de repositorio:
+Reading: ver repositorios(Devs de otros equipos)
+Priority assessment(Evaluacion de prioridades): crear isuess(QAs)
+Writting: insertan cambios activamente(Devs)
+maintainance: aprueban PRs(SSR, LT)
+administration: modifican repositorios(Infra)
+
+Plantillas de repositorio:
+Readme: indica indica el manual para levantar el proyecto. el proposito y espectativas del proyecto mediante referencias Markdown para devs en general
+Contribuition: indica el manual de modificacion para devs que van a modificar el proyecto
+CodeOwner: Devs que revisan y aprueban PRs
+Issue Template: Plantillas para autogenerar la estructura de nuevos isuess
+Pull Request: Plantilla de resolucion de aprobacion
+
+readiness assessment(Evaluacion de preparacion): adopcion de metologia innersource que conlleva a Un 
+aumento espectacular de las solicitudes de incorporación de cambios que solucionan errores en el software.
+
+supply chain: Conjunto de librerias
+
+-----
+GESTIOND E VULNERABILIDADES
+-----
+Dependency graph: origen de las librerias
+   - Dependency review
+
+Dependabot: escaneo de librerias con paquete vulnerables, generar recomendaciones y prs manuales y automaticos
+   - Dependabot alerts
+   - Dependabot updates
+
+GitHub Advisory Database:revisiones de proximas vulnerabilidades y su correcciones
+   - https://github.com/advisories
+
+----------------------
+TiPOS DE AUTENTICACION
+----------------------
+Clave y contraseña
+Tokens de acceso
+Clave SSH
+Claves de implementacion
+
+OTP: codigo de un solo uso con tiempo de vida configurable mediante red de contacto
+TOTP: OTP con menos tiempos de vida(segundos) mediante App
+
+Cumplimientos 2FA:
+- Github Team
+- Github Enterprise Cloud
+- Usuarios Administrados  de Empresa (EMU)
+- Github Enterprise Server(GHE): mediante active directory
+
+SAML: lenguaje marcado de confirmaciones de seguridad. usar token intermediarios entre applicaciones
+
+Roles a nivel de Equipo
+Cuando un Propietario o un Miembro crea un equipo de trabajo, se configuran dos sub-roles específicos para ese grupo cerrado:
+• Team Member (Miembro del equipo): Un usuario común dentro del grupo que recibe los accesos a los repositorios asignados a su equipo.
+• Team Maintainer (Mantenedor del equipo): Es el administrador de ese grupo específico. Tiene permisos para agregar o quitar personas de su propio equipo (siempre que ya pertenezcan a la organización) sin necesidad de pedirle ayuda a un administrador global
+
+
+Niveles de permiso de repositorio:
+Lectura: revision sin contribuciones
+Evaluacion de prioridades(triaje): administran isues, crean, asignan, cierran prs pero no aprueban ni fusionan
+Escritura: Pushean cambios, y aprueba PRs dependiendo casos de uso
+Mantenimiento: Aprueban Prs, protegen ramas, administrar la configuración del repositorio
+Administracion: Habilitan acceso al repositorio, elimina o transfiere el repositorio
+
+Niveles de permisos de organización
+Miembro:	pueden crear y administrar repositorios y equipos de la organización. Enterprise Member
+Moderador:	pueden bloquear y desbloquear colaboradores que no son miembros, establecer límites de interacción y ocultar comentarios en repositorios públicos que posee la organización.
+Administrador de facturación:	pueden ver y editar la información de facturación.
+Administradores de seguridad: pueden administrar alertas y configuraciones de seguridad en toda la organización. También pueden leer permisos para todos los repositorios de la organización.
+Colaborador externo: como un consultor o un empleado temporal, pueden acceder a uno o varios repositorios de la organización. No son miembros explícitos de la organización.
+
+Niveles de permisos de empresa
+Propietario: tienen control total sobre la empresa y pueden realizar todas las acciones, entre las que se incluyen:
+- Gestionar administradores.
+- Agregar y eliminar organizaciones hacia y desde la empresa.
+- Administrar configuraciones empresariales.
+- Aplicar políticas en toda la organización.
+- Administrar parámetros de facturación.
+Miembro: tienen el mismo conjunto de capacidades que los miembros de la organización.
+Administrador de facturación:	Solo pueden ver y editar la información de facturación de la empresa y agregar o quitar otros administradores de facturación.
+Colaborador invitado: Se puede conceder acceso a repositorios u organizaciones, pero tiene acceso limitado de forma predeterminada (solo usuarios administrados de empresa)
+----------------
+AUTENTICACION y AUTORIZACION de GITHUB
+---------------
+Estos métodos reducen significativamente los ataques basados en credenciales y mejoran la experiencia de usuario de inicio de sesión.
+
+Passkey: Las claves de acceso son un método de inicio de sesión sin contraseña,
+vinculado a un dispositivo físico y resistente a la suplantación de identidad (phishing).
+WebAuthn: admite factores biométricos y tokens de hardware como YubiKey.
+
+Usuarios administrados por empresas (EMU)
+En GitHub Enterprise Cloud, las EMU garantizan que la autenticación se realice estrictamente a través del proveedor de identidades (IdP):
+- Restringe el acceso solo a las cuentas administradas por la empresa.
+- Aplica un control centralizado sobre las directivas de identidad, credenciales y sesión.
+
+GitHub quita solo los miembros de la organización que no se pueden autenticar.
+Los miembros de empresa permanecen hasta que accedan al recurso:
+• miembros de la organización: Los miembros formales (Miembro, Moderador, Administrador de Seguridad) son expulsados inmediatamente de la lista interna de la organización.
+• miembros de empresa: Los colaboradores externos y administradores de facturación pierden su capacidad de entrar porque su inicio de sesión individual fallará al pasar por las políticas de SAML corporativas
+
+IdP admitidos (ruta prevista)
+- Okta
+- Microsoft Entra ID
+- Google Workspace
+
+Estados de la solicitud de cambios
+Ahora vamos a revisar los distintos estados de una solicitud de cambios.
+
+Borrador de solicitud de cambios(Draft change request): al crear una solicitud de cambios, puede elegir crear una solicitud de cambios lista para su revisión o un borrador de solicitud de cambios. No se puede combinar una solicitud de cambios con un estado de borrador, y no se solicita automáticamente a los propietarios del código que revisen los borradores de solicitud de cambios.
+
+Solicitud de cambios abierta(Open change request): un estado abierto significa que la solicitud de cambios está activa y aún no se ha combinado con la rama base. Todavía puede realizar confirmaciones y analizar y revisar los posibles cambios con colaboradores.
+
+Solicitud de cambios cerrada(Closed change request): puede optar por cerrar una solicitud de cambios sin combinarla en la rama base o principal. Esta opción es útil si los cambios propuestos en la rama ya no son necesarios o si se propone otra solución en otra rama.
+
+Solicitud de cambios combinada(Merged change request): el estado de la solicitud de cambios combinada significa que las actualizaciones y confirmaciones de la rama de comparación se combinaron con la rama base. Cualquier persona con acceso de escritura al repositorio puede completar la fusión.
+
+outdated: mofificacion de codigo obsolote mediante la agregacion de sugerencia de codigo en file changed
+
+Git Blame: historial de commits de un archivo
