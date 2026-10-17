@@ -1,0 +1,40 @@
+patrones de microservicios
+- composicion 
+- coreografia
+
+https://microservices.io/patterns/index.html
+
+hilos
+
+Fase 1: El Almacenamiento (Estado de reposo o espera en la RAM)
+
+En esta fase, el hilo no está haciendo ningún cálculo. Es simplemente una estructura de datos guardada en la memoria RAM.
+• ¿Qué hay ahí? Está su Stack (pila), que contiene las variables de las funciones que mandó a llamar y el puntero de instrucción (la nota que dice: "en qué línea de código se quedó").
+• ¿Cuándo ocurre? Un hilo entra en esta fase cuando recién se crea (y espera su turno), cuando el sistema operativo lo pausa para darle tiempo a otro hilo, o cuando tu código se frena voluntariamente esperando algo externo (por ejemplo, una respuesta de una base de datos o una API).
+
+Fase 2: La Ejecución (Estado activo en la CPU)
+
+En esta fase, el hilo cobra vida. El planificador del Sistema Operativo (o de la JVM si usas hilos virtuales) selecciona el hilo de la RAM y lo manda a un núcleo de la CPU.
+• ¿Qué ocurre aquí? El núcleo de la CPU lee las instrucciones de ese hilo a toda velocidad, realiza las operaciones matemáticas, ejecuta la lógica de tu negocio y modifica los datos.
+• ¿Cuánto dura? Dura apenas unos milisegundos (o microsegundos). La CPU procesa una ráfaga de código y, en cuanto el hilo termina o necesita esperar un dato externo, pasa de inmediato a la Fase 1 de nuevo, liberando el núcleo de la CPU.
+
+¿Cómo cambia esto entre WebFlux y Virtual Threads?
+
+• Spring WebFlux trabaja siempre con hilos físicos del sistema operativo. Por eso está obligado a usar el modelo "no bloqueante". Como tiene muy pocos hilos físicos (normalmente uno por cada núcleo de tu CPU), si un solo hilo físico se llega a bloquear esperando una base de datos, toda la aplicación se ralentiza. El hilo físico debe mantenerse siempre corriendo en la CPU, saltando de una tarea a otra mediante eventos.
+
+• Virtual Threads (Java 21) introduce hilos virtuales. Tu código interactúa con hilos virtuales, los cuales son gestionados internamente por la Máquina Virtual de Java (JVM). Puedes crear millones de ellos. Cuando uno de estos hilos virtuales se frena a esperar, a la JVM no le importa, porque simplemente lo aparta y usa el hilo físico real para ejecutar otro hilo virtual.
+
+GralVM: ejecucion rapida y contruccion lenta de archivos binarios
+el archivo binario: es un bloque continuo de datos que se mapea directamente en un espacio de memoria RAM, conteniendo el comportamiento de lo que antes eran tus clases Java.
+
+instalacion de kind: version mejorada de minikube
+https://kind.sigs.k8s.io/
+
+version de java:
+https://adoptium.net/es/temurin/releases?version=21&os=any&arch=any
+
+maven wraper: compilador dentro del proyecto, usado en la interfaz integrada del ide, mas recomendado para sincronizacion de plugins
+maven : compilador general de la maquina, usado desde la terminal
+
+Ambos son Apache Maven y ambos cumplen la función de compilar, gestionar las dependencias y empaquetar tu proyecto.
+No son herramientas distintas; son el mismo "motor" de construcción.
