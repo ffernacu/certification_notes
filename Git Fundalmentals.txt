@@ -324,3 +324,8 @@ Solicitud de cambios combinada(Merged change request): el estado de la solicitud
 outdated: mofificacion de codigo obsolote mediante la agregacion de sugerencia de codigo en file changed
 
 Git Blame: historial de commits de un archivo
+
+los tres diseños o vistas principales disponibles en los proyectos de GitHub son:
+1. Table layout (Diseño de tabla): Funciona como una hoja de cálculo potente, ideal para filtrar, ordenar y editar múltiples tareas a la vez.
+2. Board layout (Diseño de tablero): Es la clásica vista estilo Kanban. Organiza tus tareas en columnas verticales (como Todo, In Progress, Done) para visualizar el flujo de trabajo de forma intuitiva.
+3. Roadmap layout (Diseño de hoja de ruta o cronograma): Es una vista estilo diagrama de Gantt. Te permite planificar las tareas en una línea de tiempo horizontal basándose en fechas de inicio y de entrega.
